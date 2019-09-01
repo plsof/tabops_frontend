@@ -156,8 +156,8 @@ export default {
       idcOptions: [],
       serviceOptions: [],
       statusOptions: [
-        { key: 'Up', value: 0 },
-        { key: 'Down', value: 1 },
+        { key: 'Down', value: 0 },
+        { key: 'Up', value: 1 },
         { key: 'None', value: 2 }
       ],
       temp: {

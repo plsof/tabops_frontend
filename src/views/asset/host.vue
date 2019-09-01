@@ -418,7 +418,7 @@ export default {
             })
           }
         })
-      } 
+      }
     },
     handleDelete(row) {
       const index = this.list.indexOf(row)
