@@ -24,7 +24,7 @@
       <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">
         导出
       </el-button>
-      <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-refresh">
+      <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-refresh" @click="handleScan('all')">
         扫描
       </el-button>
     </div>
@@ -219,13 +219,13 @@ export default {
       // shostOptions: [],
       platformOptions: ['VMware', 'physical'],
       minionOptions: [
-        { key: 'Up', value: 0 },
-        { key: 'Down', value: 1 },
+        { key: 'Down', value: 0 },
+        { key: 'Up', value: 1 },
         { key: 'None', value: 2 }
       ],
       zabbixOptions: [
-        { key: 'Up', value: 0 },
-        { key: 'Down', value: 1 },
+        { key: 'Down', value: 0 },
+        { key: 'Up', value: 1 },
         { key: 'None', value: 2 }
       ],
       temp: {
@@ -376,36 +376,49 @@ export default {
       })
     },
     handleScan(row) {
-      this.temp = Object.assign({}, row)
-      scan({ saltid: row.salt_id }).then(response => {
-        if (response.code === 0) {
-          this.temp.idc = response.data['idc']
-          this.temp.lan_ip = response.data['lan_ip']
-          this.temp.man_ip = response.data['man_ip']
-          this.temp.platform = response.data['platform']
-          this.temp.hostname = response.data['hostname']
-          this.temp.salt_version = response.data['salt_version']
-          this.temp.os_finger = response.data['os_finger']
-          this.temp.serial_number = response.data['serial_number']
-          this.temp.num_cpus = response.data['num_cpus']
-          this.temp.mem_total = response.data['mem_total']
-          this.temp.roles = response.data['roles']
-          this.temp.minion_status = response.data['minion_status']
-          for (const v of this.list) {
-            if (v.id === this.temp.id) {
-              const index = this.list.indexOf(v)
-              this.list.splice(index, 1, this.temp)
-              break
-            }
+      if (row === 'all') {
+        scan({ saltid: 'SCYD-*' }).then(response => {
+          if (response.code === 0) {
+            this.$notify({
+              title: 'Success',
+              message: 'Refresh Successfully minion ' + response.total,
+              type: 'success',
+              duration: 2000
+            })
           }
-          this.$notify({
-            title: 'Success',
-            message: 'Refresh Successfully',
-            type: 'success',
-            duration: 2000
-          })
-        }
-      })
+        })
+      } else {
+        this.temp = Object.assign({}, row)
+        scan({ saltid: row.salt_id }).then(response => {
+          if (response.code === 0) {
+            this.temp.idc = response.data['idc']
+            this.temp.lan_ip = response.data['lan_ip']
+            this.temp.man_ip = response.data['man_ip']
+            this.temp.platform = response.data['platform']
+            this.temp.hostname = response.data['hostname']
+            this.temp.salt_version = response.data['salt_version']
+            this.temp.os_finger = response.data['os_finger']
+            this.temp.serial_number = response.data['serial_number']
+            this.temp.num_cpus = response.data['num_cpus']
+            this.temp.mem_total = response.data['mem_total']
+            this.temp.roles = response.data['roles']
+            this.temp.minion_status = response.data['minion_status']
+            for (const v of this.list) {
+              if (v.id === this.temp.id) {
+                const index = this.list.indexOf(v)
+                this.list.splice(index, 1, this.temp)
+                break
+              }
+            }
+            this.$notify({
+              title: 'Success',
+              message: 'Refresh Successfully',
+              type: 'success',
+              duration: 2000
+            })
+          }
+        })
+      } 
     },
     handleDelete(row) {
       const index = this.list.indexOf(row)
