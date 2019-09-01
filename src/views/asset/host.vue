@@ -183,6 +183,7 @@
 import { fetchIdcAll } from '@/api/asset/idc'
 import { fetchHost, createHost, updateHost, deleteHost } from '@/api/asset/host'
 import { scan } from '@/api/salt'
+import { refresh_agent } from '@/api/zabbix'
 import waves from '@/directive/waves' // waves directive
 import { parseTime } from '@/utils'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
@@ -416,6 +417,18 @@ export default {
               type: 'success',
               duration: 2000
             })
+          }
+        })
+        refresh_agent({ id: this.temp.id }).then(response => {
+          if (response.code === 0) {
+            this.temp.zabbix_status = response.data['zabbix_status']
+            for (const v of this.list) {
+              if (v.id === this.temp.id) {
+                const index = this.list.indexOf(v)
+                this.list.splice(index, 1, this.temp)
+                break
+              }
+            }
           }
         })
       }
