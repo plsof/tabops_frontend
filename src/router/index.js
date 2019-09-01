@@ -8,8 +8,8 @@ import Layout from '@/layout'
 
 /* Router Modules */
 import assetRouter from './modules/asset'
-// import architectureRouter from './modules/architecture'
-// import bstypeRouter from './modules/bstype'
+import architectureRouter from './modules/architecture'
+import bstypeRouter from './modules/bstype'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -61,11 +61,9 @@ export const constantRoutes = [
   },
 
   /** when your routing map is too long, you can split it into small modules **/
-  // chartsRouter,
-  // nestedRouter,
   assetRouter,
-  // architectureRouter,
-  // bstypeRouter,
+  architectureRouter,
+  bstypeRouter,
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
