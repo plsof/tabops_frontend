@@ -423,13 +423,13 @@ export default {
     handleDownload() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['idc', 'service', 'ip', 'path', 'port', 'status', 'comment']
-        const filterVal = ['idc', 'service', 'ip', 'path', 'port', 'status', 'comment']
+        const tHeader = ['idc', 'salt_id', 'lan_ip', 'num_cpus', 'mem_total', 'z_status', 'm_status', 'roles']
+        const filterVal = ['idc', 'salt_id', 'lan_ip', 'num_cpus', 'mem_total', 'z_status', 'm_status', 'roles']
         const data = this.formatJson(filterVal, this.list)
         excel.export_json_to_excel({
           header: tHeader,
           data,
-          filename: 'table-list'
+          filename: 'host-list'
         })
         this.downloadLoading = false
       })

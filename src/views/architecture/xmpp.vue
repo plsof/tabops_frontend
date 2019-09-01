@@ -124,7 +124,7 @@ import { fetchServiceAll } from '@/api/bstype/service'
 import { fetchXMpp, createXMpp, updateXMpp, deleteXMpp } from '@/api/architecture/xmpp'
 import { refresh } from '@/api/zabbix'
 import waves from '@/directive/waves' // waves directive
-// import { parseTime } from '@/utils'
+import { parseTime } from '@/utils'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 
 export default {

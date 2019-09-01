@@ -124,7 +124,7 @@ import { fetchServiceAll } from '@/api/bstype/service'
 import { fetchNDms, createNDms, updateNDms, deleteNDms } from '@/api/architecture/ndms'
 import { refresh } from '@/api/zabbix'
 import waves from '@/directive/waves' // waves directive
-// import { parseTime } from '@/utils'
+import { parseTime } from '@/utils'
 import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 
 export default {

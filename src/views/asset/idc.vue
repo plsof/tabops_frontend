@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <div class="filter-container" style="margin-right: 10px; margin-bottom: 10px; float:right">
+    <div class="filter-container" style="margin-bottom: 10px;">
       <el-button class="filter-item" type="primary" icon="el-icon-edit" @click="handleCreate">
         添加
       </el-button>
