@@ -63,8 +63,58 @@ export const constantRoutes = [
   /** when your routing map is too long, you can split it into small modules **/
   assetRouter,
   architectureRouter,
-  bstypeRouter,
+  bstypeRouter
 
+  // 404 page must be placed at the end !!!
+  // { path: '*', redirect: '/404', hidden: true }
+]
+
+/**
+ * asyncRoutes
+ * the routes that need to be dynamically loaded based on user roles
+ */
+export const asyncRoutes = [
+  {
+    path: '/permission',
+    component: Layout,
+    redirect: '/permission/role',
+    alwaysShow: true, // will always show the root menu
+    name: 'Permission',
+    meta: {
+      title: '认证授权',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      // {
+      //   path: 'page',
+      //   component: () => import('@/views/permission/page'),
+      //   name: 'PagePermission',
+      //   meta: {
+      //     title: 'Page Permission',
+      //     roles: ['admin'] // or you can only set roles in sub nav
+      //   }
+      // },
+      // {
+      //   path: 'directive',
+      //   component: () => import('@/views/permission/directive'),
+      //   name: 'DirectivePermission',
+      //   meta: {
+      //     title: 'Directive Permission'
+      //     // if do not set roles, means: this page does not require permission
+      //   }
+      // },
+      {
+        path: 'role',
+        component: () => import('@/views/permission/role'),
+        name: 'RolePermission',
+        meta: {
+          title: '用户管理',
+          roles: ['admin']
+        }
+      }
+    ]
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
