@@ -1,13 +1,13 @@
 import { login, getInfo } from '@/api/user'
-import { setName, setToken, removeName, removeToken } from '@/utils/auth'
+import { getName, setName, setToken, removeName, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
 
 const state = {
-  username: '',
+  username: getName(),
   token: '',
-  name: '',
+  // name: '',
   avatar: '',
-  introduction: '',
+  // introduction: '',
   roles: []
 }
 
@@ -18,12 +18,12 @@ const mutations = {
   SET_TOKEN: (state, token) => {
     state.token = token
   },
-  SET_INTRODUCTION: (state, introduction) => {
-    state.introduction = introduction
-  },
-  SET_NAME: (state, name) => {
-    state.name = name
-  },
+  // SET_INTRODUCTION: (state, introduction) => {
+  //   state.introduction = introduction
+  // },
+  // SET_NAME: (state, name) => {
+  //   state.name = name
+  // },
   SET_AVATAR: (state, avatar) => {
     state.avatar = avatar
   },
@@ -71,9 +71,9 @@ const actions = {
           roles = ['editor']
         }
         data['roles'] = roles
-        var name = 'Super Admin'
+        // var name = 'Super Admin'
         var avatar = 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
-        var introduction = 'I am a super administrator'
+        // var introduction = 'I am a super administrator'
 
         // const { roles, name, avatar, introduction } = data
 
@@ -84,9 +84,9 @@ const actions = {
 
         commit('SET_USERNAME', data.username)
         commit('SET_ROLES', roles)
-        commit('SET_NAME', name)
+        // commit('SET_NAME', name)
         commit('SET_AVATAR', avatar)
-        commit('SET_INTRODUCTION', introduction)
+        // commit('SET_INTRODUCTION', introduction)
         resolve(data)
       }).catch(error => {
         reject(error)
