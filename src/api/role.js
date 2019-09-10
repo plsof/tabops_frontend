@@ -1,38 +1,31 @@
 import request from '@/utils/request'
 
-export function getRoutes() {
-  return request({
-    url: '/routes',
-    method: 'get'
-  })
-}
-
 export function getRoles() {
   return request({
-    url: '/roles',
+    url: '/user/info',
     method: 'get'
   })
 }
 
 export function addRole(data) {
   return request({
-    url: '/role',
+    url: '/user/register/',
     method: 'post',
     data
   })
 }
 
-export function updateRole(id, data) {
+export function updateRole(data) {
   return request({
-    url: `/role/${id}`,
-    method: 'put',
+    url: '/user/info/' + data.id,
+    method: 'patch',
     data
   })
 }
 
 export function deleteRole(id) {
   return request({
-    url: `/role/${id}`,
+    url: `/user/info/${id}`,
     method: 'delete'
   })
 }
