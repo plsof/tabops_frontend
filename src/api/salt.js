@@ -4,6 +4,7 @@ export function scan(data) {
   return request({
     url: '/salt/scan/',
     method: 'post',
-    data
+    data,
+    timeout: 10000
   })
 }
