@@ -67,14 +67,14 @@
           <span>{{ scope.row.roles }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Minion" class-name="status-col" width="100px">
+      <el-table-column label="Minion" class-name="status-col" width="100px" align="center">
         <template slot-scope="{row}">
           <el-tag :type="row.minion_status | statusFilter">
             {{ row.minion_status }}
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="Zabbix" class-name="status-col" width="100px">
+      <el-table-column label="Zabbix" class-name="status-col" width="100px" align="center">
         <template slot-scope="{row}">
           <el-tag :type="row.zabbix_status | statusFilter">
             {{ row.zabbix_status }}

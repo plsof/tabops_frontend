@@ -52,7 +52,7 @@
           <span>{{ scope.row.port }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="状态" class-name="status-col" width="100">
+      <el-table-column label="状态" class-name="status-col" width="100" align="center">
         <template slot-scope="{row}">
           <el-tag :type="row.z_status | statusFilter">
             {{ row.z_status }}
