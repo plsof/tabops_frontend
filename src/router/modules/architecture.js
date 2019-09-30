@@ -95,6 +95,36 @@ const tableRouter = {
       component: () => import('@/views/architecture/ndms'),
       name: 'ndms',
       meta: { title: 'NDMS' }
+    },
+    {
+      path: 'tos',
+      component: () => import('@/views/architecture/tos'),
+      name: 'tos',
+      meta: { title: 'TOS' }
+    },
+    {
+      path: 'ucs',
+      component: () => import('@/views/architecture/ucs'),
+      name: 'ucs',
+      meta: { title: 'UCS' }
+    },
+    {
+      path: 'mgs',
+      component: () => import('@/views/architecture/mgs'),
+      name: 'mgs',
+      meta: { title: 'MGS' }
+    },
+    {
+      path: 'nmc',
+      component: () => import('@/views/architecture/nmc'),
+      name: 'nmc',
+      meta: { title: 'NMC' }
+    },
+    {
+      path: 'ubs',
+      component: () => import('@/views/architecture/ubs'),
+      name: 'ubs',
+      meta: { title: 'UBS' }
     }
   ]
 }
