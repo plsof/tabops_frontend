@@ -8,13 +8,6 @@ export function fetchService(query) {
   })
 }
 
-export function fetchServiceAll() {
-  return request({
-    url: '/bstype/serviceall',
-    method: 'get'
-  })
-}
-
 export function deleteService(id) {
   return request({
     url: '/bstype/service/' + id,

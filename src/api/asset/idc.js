@@ -8,14 +8,6 @@ export function fetchIdc(query) {
   })
 }
 
-export function fetchIdcAll(query) {
-  return request({
-    url: '/asset/idcall',
-    method: 'get',
-    params: query
-  })
-}
-
 export function createIdc(data) {
   return request({
     url: '/asset/idc/',

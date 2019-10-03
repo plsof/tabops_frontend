@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import { fetchBussinessAll } from '@/api/bstype/bussiness'
+import { fetchBussiness } from '@/api/bstype/bussiness'
 import { fetchService, deleteService, createService, updateService } from '@/api/bstype/service'
 import waves from '@/directive/waves' // waves directive
 // import { parseTime } from '@/utils'
@@ -134,9 +134,8 @@ export default {
       })
     },
     getBussiness() {
-      fetchBussinessAll().then(response => {
+      fetchBussiness().then(response => {
         this.bussinessOptions = response.data
-        print(this.bussinessOptions)
       })
     },
     handleFilter() {

@@ -180,7 +180,7 @@
 </template>
 
 <script>
-import { fetchIdcAll } from '@/api/asset/idc'
+import { fetchIdc } from '@/api/asset/idc'
 import { fetchHost, createHost, updateHost, deleteHost } from '@/api/asset/host'
 import { scan } from '@/api/salt'
 import { refresh_agent } from '@/api/zabbix'
@@ -281,7 +281,7 @@ export default {
       })
     },
     getIdc() {
-      fetchIdcAll().then(response => {
+      fetchIdc().then(response => {
         this.idcOptions = response.data
       })
     },

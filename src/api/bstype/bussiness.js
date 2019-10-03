@@ -8,13 +8,6 @@ export function fetchBussiness(query) {
   })
 }
 
-export function fetchBussinessAll() {
-  return request({
-    url: '/bstype/bussinessall',
-    method: 'get'
-  })
-}
-
 export function deleteBussiness(id) {
   return request({
     url: '/bstype/bussiness/' + id,

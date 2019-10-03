@@ -119,8 +119,8 @@
 </template>
 
 <script>
-import { fetchIdcAll } from '@/api/asset/idc'
-import { fetchServiceAll } from '@/api/bstype/service'
+import { fetchIdc } from '@/api/asset/idc'
+import { fetchService } from '@/api/bstype/service'
 import { fetchEpg, createEpg, updateEpg, deleteEpg } from '@/api/architecture/epg'
 import { refresh } from '@/api/zabbix'
 import waves from '@/directive/waves' // waves directive
@@ -202,12 +202,12 @@ export default {
       })
     },
     getIdc() {
-      fetchIdcAll().then(response => {
+      fetchIdc().then(response => {
         this.idcOptions = response.data
       })
     },
     getService() {
-      fetchServiceAll().then(response => {
+      fetchService().then(response => {
         this.serviceOptions = response.data.filter(element => {
           return element['name'].indexOf('epg-') === 0
         })
