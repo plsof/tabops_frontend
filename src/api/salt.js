@@ -5,6 +5,6 @@ export function scan(data) {
     url: '/salt/scan/',
     method: 'post',
     data,
-    timeout: 10000
+    timeout: 100000
   })
 }
