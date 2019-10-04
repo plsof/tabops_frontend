@@ -24,7 +24,7 @@
       <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">
         导出
       </el-button>
-      <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-refresh" @click="handleScan('all')">
+      <el-button v-waves :loading="scanLoading" class="filter-item" type="primary" icon="el-icon-refresh" @click="handleScan('all')">
         扫描
       </el-button>
     </div>
@@ -211,8 +211,7 @@ export default {
         page: 1,
         limit: 20,
         idc: undefined,
-        service: undefined,
-        ip: undefined
+        lan_ip: undefined
       },
       idcOptions: [],
       // cabinetOptions: [],
@@ -260,7 +259,8 @@ export default {
         idc: [{ required: true, message: 'idc is required', trigger: 'change' }],
         lan_ip: [{ required: true, message: 'service is required', trigger: 'change' }]
       },
-      downloadLoading: false
+      downloadLoading: false,
+      scanLoading: false
     }
   },
   created() {
@@ -377,6 +377,7 @@ export default {
       })
     },
     handleScan(row) {
+      this.scanLoading = true
       if (row === 'all') {
         scan({ saltid: 'SCYD-*' }).then(response => {
           if (response.code === 0) {
@@ -387,6 +388,7 @@ export default {
               duration: 2000
             })
           }
+          this.scanLoading = false
         })
       } else {
         this.temp = Object.assign({}, row)
@@ -448,16 +450,23 @@ export default {
     },
     handleDownload() {
       this.downloadLoading = true
-      import('@/vendor/Export2Excel').then(excel => {
-        const tHeader = ['idc', 'salt_id', 'lan_ip', 'num_cpus', 'mem_total', 'z_status', 'm_status', 'roles']
-        const filterVal = ['idc', 'salt_id', 'lan_ip', 'num_cpus', 'mem_total', 'z_status', 'm_status', 'roles']
-        const data = this.formatJson(filterVal, this.list)
-        excel.export_json_to_excel({
-          header: tHeader,
-          data,
-          filename: 'host-list'
+      var downloadlist = []
+      var downloadlistQuery = { ...this.listQuery }
+      delete downloadlistQuery.page
+      delete downloadlistQuery.limit
+      fetchHost(downloadlistQuery).then(response => {
+        downloadlist = response.data
+        import('@/vendor/Export2Excel').then(excel => {
+          const tHeader = ['idc', 'salt_id', 'lan_ip', 'platform', 'num_cpus', 'mem_total', 'z_status', 'm_status', 'roles']
+          const filterVal = ['idc', 'salt_id', 'lan_ip', 'platform', 'num_cpus', 'mem_total', 'z_status', 'm_status', 'roles']
+          const data = this.formatJson(filterVal, downloadlist)
+          excel.export_json_to_excel({
+            header: tHeader,
+            data,
+            filename: 'host-list'
+          })
+          this.downloadLoading = false
         })
-        this.downloadLoading = false
       })
     },
     formatJson(filterVal, jsonData) {
