@@ -8,15 +8,29 @@
 </template>
 
 <script>
+import { getFiles } from '@/api/upload'
+
 export default {
   name: 'BimsPanelImage',
   data() {
     return {
-      url: 'http://127.0.0.1:8000/media/architecture/base.jpg',
-      srcList: [
-        // 'http://127.0.0.1:8000/media/architecture/image.jpg',
-        'http://127.0.0.1:8000/media/architecture/base.jpg'
-      ]
+      ip: 'http://127.0.0.1:8000',
+      url: 'http://127.0.0.1:8000/media/bimspanel-ar.jpg',
+      srcList: []
+    }
+  },
+  created() {
+    this.getList()
+  },
+  methods: {
+    getList() {
+      getFiles().then(response => {
+        response.data.forEach(element => {
+          if (element['file'].indexOf('/media/bimpanel-') === 0) {
+            this.srcList.push(this.ip + element['file'])
+          }
+        })
+      })
     }
   }
 }
