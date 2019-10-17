@@ -10,6 +10,7 @@ import Layout from '@/layout'
 import assetRouter from './modules/asset'
 import architectureRouter from './modules/architecture'
 import bstypeRouter from './modules/bstype'
+import systemRouter from './modules/system'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -64,9 +65,6 @@ export const constantRoutes = [
   assetRouter,
   architectureRouter,
   bstypeRouter
-
-  // 404 page must be placed at the end !!!
-  // { path: '*', redirect: '/404', hidden: true }
 ]
 
 /**
@@ -115,7 +113,11 @@ export const asyncRoutes = [
       }
     ]
   },
-  // 404 page must be placed at the end !!!
+
+  /** when your routing map is too long, you can split it into small modules **/
+  systemRouter,
+
+  // 404 page must be placed at the end !!! 只能有一个
   { path: '*', redirect: '/404', hidden: true }
 ]
 

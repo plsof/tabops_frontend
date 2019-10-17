@@ -2,7 +2,7 @@
 
 import Layout from '@/layout'
 
-const tableRouter = {
+const architectureRouter = {
   path: '/architecture',
   component: Layout,
   redirect: '/architecture/wtv',
@@ -413,4 +413,4 @@ const tableRouter = {
     }
   ]
 }
-export default tableRouter
+export default architectureRouter
