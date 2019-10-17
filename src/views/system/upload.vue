@@ -30,6 +30,9 @@
           </template>
         </el-table-column>
       </el-table>
+
+      <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+
     </div>
   </div>
 </template>
@@ -37,14 +40,21 @@
 <script>
 import { getFiles, deleteFile } from '@/api/upload'
 import waves from '@/directive/waves' // waves directive
+import Pagination from '@/components/Pagination' // secondary package based on el-pagination
 
 export default {
   name: 'UploadTable',
+  components: { Pagination },
   directives: { waves },
   data() {
     return {
       list: null,
-      listLoading: false
+      total: 0,
+      listLoading: true,
+      listQuery: {
+        page: 1,
+        limit: 20
+      }
     }
   },
   created() {
@@ -53,8 +63,9 @@ export default {
   methods: {
     getList() {
       this.listLoading = true
-      getFiles().then(response => {
+      getFiles(this.listQuery).then(response => {
         this.list = response.data
+        this.total = response.total
 
         // Just to simulate the time of the request
         setTimeout(() => {

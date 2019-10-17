@@ -1,9 +1,10 @@
 import request from '@/utils/request'
 
-export function getFiles() {
+export function getFiles(query) {
   return request({
     url: '/upload',
-    method: 'get'
+    method: 'get',
+    params: query
   })
 }
 
