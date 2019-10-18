@@ -5,7 +5,7 @@ import Layout from '@/layout'
 const architectureRouter = {
   path: '/architecture',
   component: Layout,
-  redirect: '/architecture/wtv',
+  redirect: '/architecture/wtv/diagram',
   name: 'Architecture',
   meta: {
     title: '业务架构',
@@ -22,13 +22,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/wtv/diagram'),
-          name: '架构图',
+          name: 'diagram1',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/wtv/structure'),
-          name: '部署信息',
+          name: 'structure1',
           meta: { title: '部署信息' }
         }
       ]
@@ -43,13 +43,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/bimsboot/diagram'),
-          name: '架构图',
+          name: 'diagram2',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/bimsboot/structure'),
-          name: '部署信息',
+          name: 'structure2',
           meta: { title: '部署信息' }
         }
       ]
@@ -64,13 +64,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/bimspanel/diagram'),
-          name: '架构图',
+          name: 'diagram3',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/bimspanel/structure'),
-          name: '部署信息',
+          name: 'structure3',
           meta: { title: '部署信息' }
         }
       ]
@@ -85,13 +85,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/tms/diagram'),
-          name: '架构图',
+          name: 'diagram4',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/tms/structure'),
-          name: '部署信息',
+          name: 'structure4',
           meta: { title: '部署信息' }
         }
       ]
@@ -106,13 +106,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/epg/diagram'),
-          name: '架构图',
+          name: 'diagram5',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/epg/structure'),
-          name: '部署信息',
+          name: 'structure5',
           meta: { title: '部署信息' }
         }
       ]
@@ -127,13 +127,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/search/diagram'),
-          name: '架构图',
+          name: 'diagram6',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/search/structure'),
-          name: '部署信息',
+          name: 'structure6',
           meta: { title: '部署信息' }
         }
       ]
@@ -148,13 +148,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/pic/diagram'),
-          name: '架构图',
+          name: 'diagram7',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/pic/structure'),
-          name: '部署信息',
+          name: 'structure7',
           meta: { title: '部署信息' }
         }
       ]
@@ -169,13 +169,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/ppl/diagram'),
-          name: '架构图',
+          name: 'diagram8',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/ppl/structure'),
-          name: '部署信息',
+          name: 'structure8',
           meta: { title: '部署信息' }
         }
       ]
@@ -190,13 +190,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/cosepg/diagram'),
-          name: '架构图',
+          name: 'diagram9',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/cosepg/structure'),
-          name: '部署信息',
+          name: 'structure9',
           meta: { title: '部署信息' }
         }
       ]
@@ -211,13 +211,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/uic/diagram'),
-          name: '架构图',
+          name: 'diagram10',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/uic/structure'),
-          name: '部署信息',
+          name: 'structure10',
           meta: { title: '部署信息' }
         }
       ]
@@ -232,13 +232,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/mscreen/diagram'),
-          name: '架构图',
+          name: 'diagram11',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/mscreen/structure'),
-          name: '部署信息',
+          name: 'structure11',
           meta: { title: '部署信息' }
         }
       ]
@@ -253,13 +253,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/dms2/diagram'),
-          name: '架构图',
+          name: 'diagram12',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/dms2/structure'),
-          name: '部署信息',
+          name: 'structure12',
           meta: { title: '部署信息' }
         }
       ]
@@ -274,13 +274,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/xmpp/diagram'),
-          name: '架构图',
+          name: 'diagram13',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/xmpp/structure'),
-          name: '部署信息',
+          name: 'structure13',
           meta: { title: '部署信息' }
         }
       ]
@@ -295,13 +295,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/ndms/diagram'),
-          name: '架构图',
+          name: 'diagram14',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/ndms/structure'),
-          name: '部署信息',
+          name: 'structure14',
           meta: { title: '部署信息' }
         }
       ]
@@ -316,13 +316,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/tos/diagram'),
-          name: '架构图',
+          name: 'diagram15',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/tos/structure'),
-          name: '部署信息',
+          name: 'structure15',
           meta: { title: '部署信息' }
         }
       ]
@@ -337,13 +337,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/ucs/diagram'),
-          name: '架构图',
+          name: 'diagram16',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/ucs/structure'),
-          name: '部署信息',
+          name: 'structure16',
           meta: { title: '部署信息' }
         }
       ]
@@ -358,13 +358,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/mgs/diagram'),
-          name: '架构图',
+          name: 'diagram17',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/mgs/structure'),
-          name: '部署信息',
+          name: 'structure17',
           meta: { title: '部署信息' }
         }
       ]
@@ -379,13 +379,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/nmc/diagram'),
-          name: '架构图',
+          name: 'diagram18',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/nmc/structure'),
-          name: '部署信息',
+          name: 'structure18',
           meta: { title: '部署信息' }
         }
       ]
@@ -400,13 +400,13 @@ const architectureRouter = {
         {
           path: 'diagram',
           component: () => import('@/views/architecture/ubs/diagram'),
-          name: '架构图',
+          name: 'diagram19',
           meta: { title: '架构图' }
         },
         {
           path: 'structure',
           component: () => import('@/views/architecture/ubs/structure'),
-          name: '部署信息',
+          name: 'structure19',
           meta: { title: '部署信息' }
         }
       ]
