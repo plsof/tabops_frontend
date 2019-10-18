@@ -377,9 +377,9 @@ export default {
       })
     },
     handleScan(row) {
-      this.scanLoading = true
       if (row === 'all') {
-        scan({ saltid: 'SCYD-*' }).then(response => {
+        this.scanLoading = true
+        scan({ saltid: 'SCYD-10.25.172.109' }).then(response => {
           if (response.code === 0) {
             this.$notify({
               title: 'Success',
