@@ -18,7 +18,7 @@ export function createUCS(data) {
 
 export function updateUCS(data) {
   return request({
-    url: '/architecture/ucs/' + data.id,
+    url: '/architecture/ucs/' + data.id + '/',
     method: 'put',
     data
   })

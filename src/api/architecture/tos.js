@@ -18,7 +18,7 @@ export function createTOS(data) {
 
 export function updateTOS(data) {
   return request({
-    url: '/architecture/tos/' + data.id,
+    url: '/architecture/tos/' + data.id + '/',
     method: 'put',
     data
   })

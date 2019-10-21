@@ -18,7 +18,7 @@ export function createTms(data) {
 
 export function updateTms(data) {
   return request({
-    url: '/architecture/tms/' + data.id,
+    url: '/architecture/tms/' + data.id + '/',
     method: 'put',
     data
   })

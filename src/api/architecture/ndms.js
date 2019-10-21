@@ -18,7 +18,7 @@ export function createNDms(data) {
 
 export function updateNDms(data) {
   return request({
-    url: '/architecture/ndms/' + data.id,
+    url: '/architecture/ndms/' + data.id + '/',
     method: 'put',
     data
   })

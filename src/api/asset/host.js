@@ -18,7 +18,7 @@ export function createHost(data) {
 
 export function updateHost(data) {
   return request({
-    url: '/asset/host/' + data.id,
+    url: '/asset/host/' + data.id + '/',
     method: 'put',
     data
   })

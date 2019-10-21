@@ -18,7 +18,7 @@ export function createWtv(data) {
 
 export function updateWtv(data) {
   return request({
-    url: '/architecture/wtv/' + data.id,
+    url: '/architecture/wtv/' + data.id + '/',
     method: 'put',
     data
   })

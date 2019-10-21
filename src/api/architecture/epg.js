@@ -18,7 +18,7 @@ export function createEpg(data) {
 
 export function updateEpg(data) {
   return request({
-    url: '/architecture/epg/' + data.id,
+    url: '/architecture/epg/' + data.id + '/',
     method: 'put',
     data
   })

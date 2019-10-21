@@ -18,7 +18,7 @@ export function createNMC(data) {
 
 export function updateNMC(data) {
   return request({
-    url: '/architecture/nmc/' + data.id,
+    url: '/architecture/nmc/' + data.id + '/',
     method: 'put',
     data
   })

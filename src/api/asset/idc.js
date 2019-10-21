@@ -18,7 +18,7 @@ export function createIdc(data) {
 
 export function updateIdc(data) {
   return request({
-    url: '/asset/idc/' + data.id,
+    url: '/asset/idc/' + data.id + '/',
     method: 'put',
     data
   })

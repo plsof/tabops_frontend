@@ -18,7 +18,7 @@ export function createSearch(data) {
 
 export function updateSearch(data) {
   return request({
-    url: '/architecture/search/' + data.id,
+    url: '/architecture/search/' + data.id + '/',
     method: 'put',
     data
   })

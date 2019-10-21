@@ -25,7 +25,7 @@ export function createBussiness(data) {
 
 export function updateBussiness(data) {
   return request({
-    url: '/bstype/bussiness/' + data.id,
+    url: '/bstype/bussiness/' + data.id + '/',
     method: 'put',
     data
   })

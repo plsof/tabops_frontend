@@ -18,7 +18,7 @@ export function createPic(data) {
 
 export function updatePic(data) {
   return request({
-    url: '/architecture/pic/' + data.id,
+    url: '/architecture/pic/' + data.id + '/',
     method: 'put',
     data
   })

@@ -18,7 +18,7 @@ export function createBimsPanel(data) {
 
 export function updateBimsPanel(data) {
   return request({
-    url: '/architecture/bimspanel/' + data.id,
+    url: '/architecture/bimspanel/' + data.id + '/',
     method: 'put',
     data
   })

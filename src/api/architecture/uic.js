@@ -18,7 +18,7 @@ export function createUic(data) {
 
 export function updateUic(data) {
   return request({
-    url: '/architecture/uic/' + data.id,
+    url: '/architecture/uic/' + data.id + '/',
     method: 'put',
     data
   })

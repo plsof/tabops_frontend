@@ -18,7 +18,7 @@ export function createPpl(data) {
 
 export function updatePpl(data) {
   return request({
-    url: '/architecture/ppl/' + data.id,
+    url: '/architecture/ppl/' + data.id + '/',
     method: 'put',
     data
   })

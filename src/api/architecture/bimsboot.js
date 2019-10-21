@@ -18,7 +18,7 @@ export function createBimsBoot(data) {
 
 export function updateBimsBoot(data) {
   return request({
-    url: '/architecture/bimsboot/' + data.id,
+    url: '/architecture/bimsboot/' + data.id + '/',
     method: 'put',
     data
   })

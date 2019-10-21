@@ -18,7 +18,7 @@ export function createDms2(data) {
 
 export function updateDms2(data) {
   return request({
-    url: '/architecture/dms2/' + data.id,
+    url: '/architecture/dms2/' + data.id + '/',
     method: 'put',
     data
   })

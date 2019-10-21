@@ -18,7 +18,7 @@ export function createXMpp(data) {
 
 export function updateXMpp(data) {
   return request({
-    url: '/architecture/xmpp/' + data.id,
+    url: '/architecture/xmpp/' + data.id + '/',
     method: 'put',
     data
   })

@@ -18,7 +18,7 @@ export function createUBS(data) {
 
 export function updateUBS(data) {
   return request({
-    url: '/architecture/ubs/' + data.id,
+    url: '/architecture/ubs/' + data.id + '/',
     method: 'put',
     data
   })

@@ -18,7 +18,7 @@ export function createMGS(data) {
 
 export function updateMGS(data) {
   return request({
-    url: '/architecture/mgs/' + data.id,
+    url: '/architecture/mgs/' + data.id + '/',
     method: 'put',
     data
   })

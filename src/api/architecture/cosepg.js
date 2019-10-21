@@ -18,7 +18,7 @@ export function createCosEpg(data) {
 
 export function updateCosEpg(data) {
   return request({
-    url: '/architecture/cosepg/' + data.id,
+    url: '/architecture/cosepg/' + data.id + '/',
     method: 'put',
     data
   })

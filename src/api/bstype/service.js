@@ -25,7 +25,7 @@ export function createService(data) {
 
 export function updateService(data) {
   return request({
-    url: '/bstype/service/' + data.id,
+    url: '/bstype/service/' + data.id + '/',
     method: 'put',
     data
   })

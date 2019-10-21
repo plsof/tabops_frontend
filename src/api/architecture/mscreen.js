@@ -18,7 +18,7 @@ export function createMScreen(data) {
 
 export function updateMScreen(data) {
   return request({
-    url: '/architecture/mscreen/' + data.id,
+    url: '/architecture/mscreen/' + data.id + '/',
     method: 'put',
     data
   })
