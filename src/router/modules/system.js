@@ -11,7 +11,7 @@ const systemRouter = {
   meta: {
     title: '系统设置',
     icon: 'setting',
-    // roles: ['admin'] // you can set roles in root nav
+    roles: ['admin'] // you can set roles in root nav
   },
   children: [
     {
@@ -20,7 +20,7 @@ const systemRouter = {
       name: 'Upload',
       meta: {
         title: '图片上传',
-        // roles: ['admin']
+        roles: ['admin']
       }
     }
   ]
