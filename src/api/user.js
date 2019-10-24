@@ -15,3 +15,11 @@ export function getInfo(username) {
     params: { username }
   })
 }
+
+export function changePasswd(data) {
+  return request({
+    url: '/user/changepasswd/',
+    method: 'put',
+    data
+  })
+}
