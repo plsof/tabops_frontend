@@ -43,8 +43,8 @@ export default {
   data() {
     return {
       lineChartData: {
-        vmwareData: [0, 0, 0],
-        physicalData: [0, 0, 0]
+        vmwareData: [0, 0, 0, 0, 0, 0],
+        physicalData: [0, 0, 0, 0, 0, 0]
       },
       saltPieChartData: [
         { value: 0, name: 'Down', itemStyle: { color: '#FF0000' }},
@@ -82,6 +82,24 @@ export default {
       })
       fetchHost({ idc: 210, platform: 'physical' }).then(response => {
         this.lineChartData.physicalData.splice(2, 1, response.total)
+      })
+      fetchHost({ idc: 301, platform: 'VMware' }).then(response => {
+        this.lineChartData.vmwareData.splice(3, 1, response.total)
+      })
+      fetchHost({ idc: 301, platform: 'physical' }).then(response => {
+        this.lineChartData.physicalData.splice(3, 1, response.total)
+      })
+      fetchHost({ idc: 601, platform: 'physical' }).then(response => {
+        this.lineChartData.physicalData.splice(4, 1, response.total)
+      })
+      fetchHost({ idc: 601, platform: 'physical' }).then(response => {
+        this.lineChartData.physicalData.splice(4, 1, response.total)
+      })
+      fetchHost({ idc: 201, platform: 'physical' }).then(response => {
+        this.lineChartData.physicalData.splice(5, 1, response.total)
+      })
+      fetchHost({ idc: 201, platform: 'physical' }).then(response => {
+        this.lineChartData.physicalData.splice(5, 1, response.total)
       })
     },
     getSaltStatus() {

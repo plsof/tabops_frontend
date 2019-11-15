@@ -64,7 +64,7 @@ export default {
     setOptions({ vmwareData, physicalData } = {}) {
       this.chart.setOption({
         xAxis: {
-          data: ['109机房', '111机房', '210机房'],
+          data: ['109机房', '111机房', '210机房', '301机房', '601机房', '201机房'],
           boundaryGap: true,
           axisTick: {
             show: true
@@ -102,7 +102,7 @@ export default {
               // }
             }
           },
-          barWidth: '70px',
+          barWidth: '40px',
           smooth: true,
           type: 'bar',
           data: vmwareData,
@@ -125,7 +125,7 @@ export default {
               }
             }
           },
-          barWidth: '70px',
+          barWidth: '40px',
           data: physicalData,
           animationDuration: 2800,
           animationEasing: 'quadraticOut'
