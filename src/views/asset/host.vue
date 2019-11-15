@@ -1,18 +1,18 @@
 <template>
   <div class="app-container">
     <div class="filter-container" style="margin-bottom: 10px;">
-      <el-input v-model="listQuery.lan_ip" placeholder="业务IP" style="width: 150px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-input v-model="listQuery.roles" placeholder="角色" style="width: 150px;" class="filter-item" @keyup.enter.native="handleFilter" />
-      <el-select v-model="listQuery.idc" placeholder="机房" clearable style="width: 90px" class="filter-item">
+      <el-input v-model="listQuery.lan_ip" placeholder="业务IP" style="width: 130px;" class="filter-item" @keyup.enter.native="handleFilter" />
+      <el-input v-model="listQuery.roles" placeholder="角色" style="width: 130px;" class="filter-item" @keyup.enter.native="handleFilter" />
+      <el-select v-model="listQuery.idc" placeholder="机房" clearable style="width: 80px" class="filter-item">
         <el-option v-for="item in idcOptions" :key="item.name" :label="item.name" :value="item.name" />
       </el-select>
-      <el-select v-model="listQuery.platform" placeholder="Platform" clearable style="width: 90px" class="filter-item">
+      <el-select v-model="listQuery.platform" placeholder="Platform" clearable style="width: 80px" class="filter-item">
         <el-option v-for="item in platformOptions" :key="item" :label="item" :value="item" />
       </el-select>
-      <el-select v-model="listQuery.m_status" placeholder="Minion" clearable style="width: 90px" class="filter-item">
+      <el-select v-model="listQuery.m_status" placeholder="Minion" clearable style="width: 80px" class="filter-item">
         <el-option v-for="item in minionOptions" :key="item.key" :label="item.key" :value="item.value" />
       </el-select>
-      <el-select v-model="listQuery.z_status" placeholder="Zabbix" clearable style="width: 90px" class="filter-item">
+      <el-select v-model="listQuery.z_status" placeholder="Zabbix" clearable style="width: 80px" class="filter-item">
         <el-option v-for="item in zabbixOptions" :key="item.key" :label="item.key" :value="item.value" />
       </el-select>
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
@@ -24,8 +24,11 @@
       <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">
         导出
       </el-button>
-      <el-button v-waves :loading="scanLoading" class="filter-item" type="primary" icon="el-icon-refresh" @click="handleScan('all')">
-        扫描
+      <el-button v-waves :loading="scanLoading1" class="filter-item" type="primary" icon="el-icon-refresh" @click="handleScan('west')">
+        扫描1
+      </el-button>
+      <el-button v-waves :loading="scanLoading2" class="filter-item" type="primary" icon="el-icon-refresh" @click="handleScan('south')">
+        扫描2
       </el-button>
     </div>
 
@@ -260,7 +263,8 @@ export default {
         lan_ip: [{ required: true, message: 'service is required', trigger: 'change' }]
       },
       downloadLoading: false,
-      scanLoading: false
+      scanLoading1: false,
+      scanLoading2: false
     }
   },
   created() {
@@ -377,9 +381,9 @@ export default {
       })
     },
     handleScan(row) {
-      if (row === 'all') {
-        this.scanLoading = true
-        scan({ saltid: 'SCYD-10.25.172.109' }).then(response => {
+      if (row === 'west') {
+        this.scanLoading1 = true
+        scan({ saltid: 'SCYD-west' }).then(response => {
           if (response.code === 0) {
             this.$notify({
               title: 'Success',
@@ -388,7 +392,20 @@ export default {
               duration: 2000
             })
           }
-          this.scanLoading = false
+          this.scanLoading1 = false
+        })
+      } else if (row === 'south') {
+        this.scanLoading2 = true
+        scan({ saltid: 'SCYD-south' }).then(response => {
+          if (response.code === 0) {
+            this.$notify({
+              title: 'Success',
+              message: 'Refresh Successfully minion ' + response.total,
+              type: 'success',
+              duration: 2000
+            })
+          }
+          this.scanLoading2 = false
         })
       } else {
         this.temp = Object.assign({}, row)
