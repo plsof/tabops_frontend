@@ -14,8 +14,8 @@ export default {
   name: 'UBSImage',
   data() {
     return {
-      ip: 'http://127.0.0.1:8000',
-      url: 'http://127.0.0.1:8000/media/ubs-ar.jpg',
+      ip: 'http://172.188.2.89:8000',
+      url: 'http://172.188.2.89:8000/media/ubs-ar.jpg',
       srcList: []
     }
   },

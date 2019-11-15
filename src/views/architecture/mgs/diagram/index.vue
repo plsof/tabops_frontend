@@ -14,8 +14,8 @@ export default {
   name: 'MGSImage',
   data() {
     return {
-      ip: 'http://127.0.0.1:8000',
-      url: 'http://127.0.0.1:8000/media/mgs-ar.jpg',
+      ip: 'http://172.188.2.89:8000',
+      url: 'http://172.188.2.89:8000/media/mgs-ar.jpg',
       srcList: []
     }
   },

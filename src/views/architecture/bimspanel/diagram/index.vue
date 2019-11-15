@@ -14,8 +14,8 @@ export default {
   name: 'BimsPanelImage',
   data() {
     return {
-      ip: 'http://127.0.0.1:8000',
-      url: 'http://127.0.0.1:8000/media/bimspanel-ar.jpg',
+      ip: 'http://172.188.2.89:8000',
+      url: 'http://172.188.2.89:8000/media/bimspanel-ar.jpg',
       srcList: []
     }
   },
@@ -26,7 +26,7 @@ export default {
     getList() {
       getFiles().then(response => {
         response.data.forEach(element => {
-          if (element['file'].indexOf('/media/bimpanel-') === 0) {
+          if (element['file'].indexOf('/media/bimspanel-') === 0) {
             this.srcList.push(this.ip + element['file'])
           }
         })
