@@ -410,6 +410,27 @@ const architectureRouter = {
           meta: { title: '部署信息' }
         }
       ]
+    },
+    {
+      path: 'vas',
+      component: () => import('@/views/architecture/vas/index'),
+      name: 'vas',
+      meta: { title: 'VAS' },
+      redirect: '/architecture/vas/diagram',
+      children: [
+        {
+          path: 'diagram',
+          component: () => import('@/views/architecture/vas/diagram'),
+          name: 'diagram20',
+          meta: { title: '架构图' }
+        },
+        {
+          path: 'structure',
+          component: () => import('@/views/architecture/vas/structure'),
+          name: 'structure20',
+          meta: { title: '部署信息' }
+        }
+      ]
     }
   ]
 }
