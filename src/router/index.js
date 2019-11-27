@@ -129,6 +129,17 @@ export const asyncRoutes = [
   /** when your routing map is too long, you can split it into small modules **/
   systemRouter,
 
+  {
+    path: 'qps',
+    component: Layout,
+    children: [
+      {
+        path: 'http://172.188.3.24:3000/',
+        meta: { title: 'grafana', icon: 'link' }
+      }
+    ]
+  },
+
   // 404 page must be placed at the end !!! 只能有一个
   { path: '*', redirect: '/404', hidden: true }
 ]
