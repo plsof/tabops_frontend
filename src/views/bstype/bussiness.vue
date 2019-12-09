@@ -25,6 +25,26 @@
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column> -->
+      <el-table-column type="expand">
+        <template slot-scope="scope">
+          <el-form label-position="left" class="demo-table-expand">
+            <div v-if="scope.row.domain">
+              <el-form-item
+                v-for="(domain, index) in scope.row.domain.split(',')"
+                :key="domain.key"
+                :label="'域名' + index"
+              >
+                <span>{{ domain }}</span>
+              </el-form-item>
+            </div>
+            <div v-else>
+              <el-form-item>
+                <span style="color:red">该业务没有域名或未配置域名</span>
+              </el-form-item>
+            </div>
+          </el-form>
+        </template>
+      </el-table-column>
       <el-table-column label="名称" width="220px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.name }}</span>
@@ -64,6 +84,19 @@
             <el-option v-for="item in btypeOptions" :key="item.key" :label="item.key" :value="item.value" />
           </el-select>
         </el-form-item>
+        <el-form-item
+          v-for="(domain, index) in dynamicValidateForm.domains"
+          :key="domain.key"
+          :label="'域名' + index"
+          :prop="'domains.' + index + '.value'"
+        >
+          <table>
+            <tr>
+              <td style="width: 300px;"><el-input v-model="domain.value" /></td>
+              <td><el-button @click.prevent="removeDomain(domain)">删除</el-button></td>
+            </tr>
+          </table>
+        </el-form-item>
         <el-form-item label="备注">
           <el-input v-model="temp.comment" :autosize="{ minRows: 2, maxRows: 4}" type="textarea" placeholder="Please input" />
         </el-form-item>
@@ -71,6 +104,9 @@
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">
           Cancel
+        </el-button>
+        <el-button @click="addDomain">
+          新增域名
         </el-button>
         <el-button type="primary" @click="dialogStatus==='create'?createData():updateData()">
           Confirm
@@ -109,7 +145,13 @@ export default {
         id: undefined,
         name: '',
         btype: '',
+        domain: '',
         comment: ''
+      },
+      dynamicValidateForm: {
+        domains: [{
+          value: ''
+        }]
       },
       dialogFormVisible: false,
       dialogStatus: '',
@@ -149,6 +191,7 @@ export default {
         id: undefined,
         name: '',
         btype: '',
+        domain: '',
         comment: ''
       }
     },
@@ -163,8 +206,11 @@ export default {
     createData() {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
-          // this.temp.id = parseInt(Math.random() * 100) + 1024 // mock a id
-          // this.temp.author = 'vue-element-admin'
+          const domainarr = []
+          this.dynamicValidateForm.domains.forEach((item, index, array) => {
+            domainarr.push(item['value'])
+          })
+          this.temp.domain = domainarr.toString()
           createBussiness(this.temp).then((response) => {
             this.temp.id = response.data.id
             this.temp.btype_name = response.data.btype_name
@@ -182,6 +228,12 @@ export default {
     },
     handleUpdate(row) {
       this.temp = Object.assign({}, row) // copy obj
+      this.dynamicValidateForm.domains = [] // 编辑diglog显示域名
+      if (this.temp.domain) {
+        this.temp.domain.split(',').forEach((item, index, array) => {
+          this.dynamicValidateForm.domains.push({ 'value': item })
+        })
+      }
       this.dialogStatus = 'update'
       this.dialogFormVisible = true
       this.$nextTick(() => {
@@ -196,6 +248,11 @@ export default {
           } else {
             this.temp['btype_name'] = 'local'
           }
+          const domainarr = []
+          this.dynamicValidateForm.domains.forEach((item, index, array) => {
+            domainarr.push(item['value'])
+          })
+          this.temp.domain = domainarr.toString()
           const tempData = Object.assign({}, this.temp)
           updateBussiness(tempData).then(() => {
             for (const v of this.list) {
@@ -229,7 +286,34 @@ export default {
         type: 'success',
         duration: 2000
       })
+    },
+    removeDomain(item) {
+      var index = this.dynamicValidateForm.domains.indexOf(item)
+      if (index !== -1) {
+        this.dynamicValidateForm.domains.splice(index, 1)
+      }
+    },
+    addDomain() {
+      this.dynamicValidateForm.domains.push({
+        value: '',
+        key: Date.now()
+      })
     }
   }
 }
 </script>
+
+<style>
+  .demo-table-expand {
+    font-size: 0;
+  }
+  .demo-table-expand label {
+    width: 90px;
+    color: #99a9bf;
+  }
+  .demo-table-expand .el-form-item {
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 50%;
+  }
+</style>
