@@ -14,8 +14,8 @@ export default {
   name: 'SearchImage',
   data() {
     return {
-      ip: 'http://172.188.2.89:8000',
-      url: 'http://172.188.2.89:8000/media/search-ar.jpg',
+      ip: 'http://www.tabops.com:8000',
+      url: 'http://www.tabops.com:8000/media/search-ar.jpg',
       srcList: []
     }
   },

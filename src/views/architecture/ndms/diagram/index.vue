@@ -14,8 +14,8 @@ export default {
   name: 'NDMSImage',
   data() {
     return {
-      ip: 'http://172.188.2.89:8000',
-      url: 'http://172.188.2.89:8000/media/ndms-ar.jpg',
+      ip: 'http://www.tabops.com:8000',
+      url: 'http://www.tabops.com:8000/media/ndms-ar.jpg',
       srcList: []
     }
   },
