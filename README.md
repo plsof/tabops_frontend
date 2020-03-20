@@ -42,6 +42,32 @@
 
 ```
 
+## 截图
+
+1. 首页
+
+<img src="./images/front-1.png" alt="dashboard" style="zoom:40%;" />
+
+2. 资产管理
+
+<img src="./images/idc.png" alt="idc" style="zoom:40%;" />
+
+<img src="./images/host.png" alt="idc" style="zoom:40%;" />
+
+3. 业务架构
+
+<img src="./images/architecture.png" alt="architecture" style="zoom:40%;" />
+
+4. 业服类型
+
+<img src="./images/structure.png" alt="structure" style="zoom:40%;" />
+
+<img src="./images/service.png" alt="service" style="zoom:40%;" />
+
+5. 系统设置
+
+<img src="./images/upload.png" alt="upload" style="zoom:40%;" />
+
 ## 开发
 
 ```bash
@@ -88,10 +114,6 @@ npm run lint
 # 代码格式检查并自动修复
 npm run lint -- --fix
 ```
-
-
-## 截图
-
 
 ## License
 
