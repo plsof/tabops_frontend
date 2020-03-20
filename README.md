@@ -1,4 +1,4 @@
-# go-admin-ui
+# tabops_frontend
 
   <a href="https://github.com/plsof/tabops_frontend/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
