@@ -58,9 +58,11 @@
 
 <img src="./images/architecture.png" alt="architecture" style="zoom:40%;" />
 
+<img src="./images/structure.png" alt="structure" style="zoom:40%;" />
+
 4. 业服类型
 
-<img src="./images/structure.png" alt="structure" style="zoom:40%;" />
+<img src="./images/bussiness.png" alt="bussiness" style="zoom:40%;" />
 
 <img src="./images/service.png" alt="service" style="zoom:40%;" />
 
